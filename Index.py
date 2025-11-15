@@ -45,7 +45,7 @@ while True:
             input('Pressione ENTER para continuar...')
         case 3:
             print("=====EXTRATO=====")
-            print(f"Seu saldo é de {saldo:.2f}")
+            print(f"Seu saldo é de R${saldo:.2f}")
             print(f"Você fez {numero_de_depositos} Depositos")
             print(f"você fez {numero_de_saques} saques")
             print("=================")
