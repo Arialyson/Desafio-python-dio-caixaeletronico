@@ -1,9 +1,22 @@
+import os
+import platform
+
+def limpar_tela():
+    """Limpa o console (funciona em Windows, Linux e macOS)."""
+    if platform.system() == "Windows":
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
 def menu():
     print('''
+          === ARIBANK ===
           [1] Depositar
           [2] Sacar
           [3] Extrato
           [4] Sair
+          ===============
           ''')
 
 saldo = 0
@@ -14,6 +27,7 @@ numero_de_saques = 0
 Limite_de_saques = 3
 
 while True:
+    limpar_tela()
     menu()
     opcao = int(input("Digite uma opção: "))
     match opcao:
@@ -22,17 +36,20 @@ while True:
             saldo += deposito
             numero_de_depositos += 1
             print(f"Você depositou R${deposito:.2f}")
+            input('Pressione ENTER para continuar...')
         case 2:
             saque = float(input("Quanto quer sacar? R$"))
             saldo -= saque
             numero_de_saques += 1
             print(f"Você sacou R${saque:.2f}")
+            input('Pressione ENTER para continuar...')
         case 3:
             print("=====EXTRATO=====")
             print(f"Seu saldo é de {saldo:.2f}")
             print(f"Você fez {numero_de_depositos} Depositos")
             print(f"você fez {numero_de_saques} saques")
             print("=================")
+            input('pressione ENTER para continuar...')
         case 4:
             print("Obrigado por usar nosso caixa!")
             print("Até mais")
